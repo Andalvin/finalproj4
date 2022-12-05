@@ -1,0 +1,41 @@
+<div *ngIf="thing">
+  <mat-card class="detail-card">
+
+    <h1 *ngIf="thing.name">Edit Existing</h1>
+    <h1 *ngIf="!thing.name">Add New</h1>
+
+    <mat-form-field class="edit">
+      <input required #name="ngModel" matInput [(ngModel)]="thing.name" placeholder="Name" value="{{thing.name}}">
+    </mat-form-field><br/>
+    <mat-form-field class="edit">
+      <input required type="number" min="0" step="1" #likes="ngModel" matInput [(ngModel)]="thing.likes" placeholder="Likes" value="{{thing.likes}}">
+    </mat-form-field><br/>
+    <mat-form-field class="edit">
+      <textarea matInput [(ngModel)]="thing.desc" placeholder="Description" value="{{thing.desc}}">{{thing.desc}}</textarea>
+    </mat-form-field><br/>
+    <mat-form-field  class="edit">
+      <mat-select [(ngModel)]="thing.photo" placeholder="Photo">
+        <mat-option *ngFor="let photo of photos" [value]="photo">{{photo}}</mat-option>
+      </mat-select>   
+    </mat-form-field>
+
+    <br/><br/><br/>
+
+    <div *ngIf="name.errors && (name.dirty || name.touched)" class="alert alert-danger">
+      <div [hidden]="!name.errors">
+        Nameless items are not permitted!
+      </div>
+    </div>
+    <div *ngIf="likes.errors && (likes.dirty || likes.touched)" class="alert alert-danger">
+      <div [hidden]="!likes.errors">
+        Items must have some likes, even if it's zero :'(
+      </div>
+    </div>
+
+    <mat-card-actions>
+      <button color="primary" mat-button (click)="goBack()"><mat-icon>clear</mat-icon>&nbsp; CANCEL</button>
+      <button *ngIf="!name.errors && !likes.errors" color="primary" mat-raised-button  (click)="save()"><mat-icon>check</mat-icon>&nbsp; SAVE</button>
+    </mat-card-actions>   
+
+  </mat-card>
+</div>

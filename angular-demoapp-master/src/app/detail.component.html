@@ -1,0 +1,17 @@
+<div *ngIf="thing">
+  <mat-card class="detail-card">
+    <mat-card-header>
+      <h1>{{thing.name}}</h1>
+    </mat-card-header>
+    <img mat-card-image src='assets/{{thing.photo}}'>
+    <mat-card-content>
+        <div>{{thing.likes}} likes</div>
+        <p>{{thing.desc}}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button (click)="like(thing)"><mat-icon>favorite</mat-icon>&nbsp; LIKE</button>
+      <button mat-button [routerLink]="['/edit', thing.RowKey]"><mat-icon>mode_edit</mat-icon>&nbsp; EDIT</button>
+      <button mat-button (click)="delete()"><mat-icon>delete_forever</mat-icon>&nbsp; DELETE</button>
+    </mat-card-actions>
+  </mat-card>
+</div>

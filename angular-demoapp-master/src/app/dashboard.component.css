@@ -1,0 +1,45 @@
+.thing-card {
+  cursor: pointer;
+  margin: 6px;
+}
+
+.thing-card mat-card-title {
+  font-size: 110%;
+}
+
+.thing-card:hover {
+  background-color: #E8EAF6;
+  box-shadow: 0 3px 15px -1px rgba(0,0,0,.2), 0 10px 14px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
+}
+
+.cen {
+  text-align: center;
+}
+
+.fill-space {
+  flex: 1 1 auto;
+}
+
+mat-card-header button {
+  top: -10px;
+  float:right;
+}
+
+mat-card-header .material-icons {
+  color:#EC644B;
+}
+
+mat-card-title {
+  width:20vw;
+  max-width:20vw;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+.spinner {
+  width:100%
+}
+.spinner mat-progress-spinner {
+  margin:0 auto;
+}

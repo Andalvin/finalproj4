@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+  # Container serving the Angular app from Node
+  app-server:
+    image: bencuk/angular-demoapp
+    build: .
+    ports:
+    - "3000:3000"
+    environment:
+    # These settings tell the API how to access the Azure Storage account
+    - APPSETTING_STORAGE_ACCOUNT=${APPSETTING_STORAGE_ACCOUNT}
+    - APPSETTING_STORAGE_KEY=${APPSETTING_STORAGE_KEY}
+    networks:
+     - frontend
+networks: 
+  frontend:

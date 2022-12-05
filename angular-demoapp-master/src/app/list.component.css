@@ -1,0 +1,17 @@
+mat-list-item {
+  cursor: pointer;
+  height: 200%;
+  padding: 10px;
+}
+
+h1 {
+    font-size: 200% !important;
+}
+
+.spinner {
+  width:100%
+}
+
+.spinner mat-progress-spinner {
+  margin:0 auto;
+}

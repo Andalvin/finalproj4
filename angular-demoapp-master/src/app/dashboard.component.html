@@ -1,0 +1,19 @@
+<div fxLayout.xs="column" fxLayout="row" fxLayoutWrap="wrap" >
+  <div fxFlex *ngFor="let thing of things">
+    <mat-card  class="thing-card mat-elevation-z6" [routerLink]="['/detail', thing.RowKey]">
+      <mat-card-header>
+        <mat-card-title>{{thing.name}}</mat-card-title>
+        <span class="fill-space"></span>
+        <button mat-button (click)="like(thing, $event)"><mat-icon>favorite</mat-icon> {{thing.likes}} </button>
+      </mat-card-header>
+      <img mat-card-image src='assets/{{thing.photo}}'>
+    </mat-card>
+  </div>
+
+  <!-- loading spinner -->
+  <div class="spinner" *ngIf="things.length == 0">
+    <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+  </div>
+</div>
+
+

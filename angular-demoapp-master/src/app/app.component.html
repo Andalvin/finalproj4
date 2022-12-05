@@ -1,0 +1,51 @@
+<mat-sidenav-container fullscreen>
+
+  <mat-toolbar color="primary" class="mat-elevation-z5">
+    <!-- non mobile -->
+    <div fxHide.xs fxFlex fxLayout="row">
+      <div class='navicon'><img src='../assets/angular.svg'></div>
+      <button mat-button routerLink="/dashboard">
+         <mat-icon> favorite </mat-icon>
+         <span> DASHBOARD </span>
+       </button>
+      <button mat-button routerLink="/list">
+         <mat-icon> pageview </mat-icon>
+         <span> LIST </span>
+       </button>
+
+      <span class="fill-space"></span>
+      <span *ngIf="!env.production" style="font-style: italic">&nbsp;&nbsp; <mat-icon>build</mat-icon> dev mode &nbsp;&nbsp;</span>
+
+      <thing-search></thing-search>
+
+      <a target="_new" mat-button href='https://github.com/benc-uk/angular-demoapp'>
+        <img class='navicon-sm' src='../assets/github.svg'>
+        <span> GITHUB </span>
+      </a>
+    </div>
+
+    <!-- mobile -->
+    <div xShow.xs fxHide.gt-xs>
+      <button mat-icon-button [matMenuTriggerFor]="appMenu">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span> ANGULAR DEMOAPP </span>
+      <mat-menu #appMenu="matMenu" yPosition="below">
+        <button mat-menu-item routerLink="/dashboard">
+          <mat-icon> favorite </mat-icon>
+          <span> DASHBOARD </span>
+        </button>
+        <button mat-menu-item routerLink="/list">
+         <mat-icon> pageview </mat-icon>
+         <span> LIST </span>
+       </button>
+      </mat-menu>
+      <span *ngIf="!env.production" style="font-style: italic">&nbsp;&nbsp; <mat-icon>build</mat-icon> dev mode &nbsp;&nbsp;</span>
+    </div>
+  </mat-toolbar>
+
+  <div class='app-content'>
+    <router-outlet></router-outlet>
+  </div>
+
+</mat-sidenav-container>
